@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "structure parametres.c"
 
 struct parametres * demande_parametres(){
   struct parametres * param;
