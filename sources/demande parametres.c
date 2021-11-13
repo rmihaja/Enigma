@@ -11,5 +11,15 @@ m−>t [ i ] = ( float ∗) malloc ( m ∗sizeof ( float ) ) ;
 return m ;
 }
 
+printf("Quels sont les coefficients de la ligne %d ? \n",i+1);
 
-struct parametres *
+scanf("%f",&a);
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct parametres * demande_parametres(){
+  struct parametres * param;
+  param=(struct parametres *) malloc (sizeof (struct parametres));
+  scanf("%d
+  param->
