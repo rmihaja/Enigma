@@ -4,8 +4,8 @@ struct parametres{
   float zi;
   float dt;
   float Tmax;
-  float σ;
-  float ρ;
-  float β;
-}
+  float Sigma;
+  float Ro;
+  float Beta;
+};
 
