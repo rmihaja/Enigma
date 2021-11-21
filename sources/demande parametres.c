@@ -39,3 +39,5 @@ struct parametres * demande_parametres(){
   
   return param;
 }
+
+print 
