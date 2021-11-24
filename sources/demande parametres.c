@@ -1,41 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "structure parametres.c"
+#include "parametres.h"
 
-struct parametres * demande_parametres(){
-  struct parametres * param;
-  param=(struct parametres *) malloc (sizeof (struct parametres));
-  printf("xi ? \n");
-  scanf("%f",&a);
-  param->xi=a;
+struct parametres *demande_parametres() {
+  struct parametres *param;
+  param = (struct parametres *) malloc(sizeof(struct parametres));
+
+  param->position_initiale = (struct position *) malloc(sizeof(struct position));
+  printf("Veuillez entrer la position initial du système:\n");
+  printf("\nCoordonnée x : ");
+  scanf("%f", &param->position_initiale->x);
+  printf("\nCoordonnée y : ");
+  scanf("%f", &param->position_initiale->y);
+  printf("\nCoordonnée z : ");
+  scanf("%f", &param->position_initiale->z);
   
-  printf("yi ? \n");
-  scanf("%f",&b);
-  param->yi=b;
-  
-  printf("zi ? \n");
-  scanf("%f",&c);
-  param->zi=c;
-  
-  printf("dt ? \n");
-  scanf("%f",&d);
-  param->dt=d;
-  
-  printf("Tmax ? \n");
-  scanf("%f",&e);
-  param->Tmax=e;
-  
-  printf("σ ? \n");
-  scanf("%f",&f);
-  param->σ=f;
-  
-  printf("ρ ? \n");
-  scanf("%f",&g);
-  param->ρ=g;
-  
-  printf("β ? \n");
-  scanf("%f",&h);
-  param->β=h;
-  
+  printf("\nVeuillez entrer l'incrément dt du mouvement: ");
+  scanf("%f", &param->dt);
+  printf("\nVeuillez entrer le temps d'arrêt du système: ");
+  scanf("%f", &param->t_max);
+
+  param->cte = (struct constantes *) malloc(sizeof(struct constantes));
+  printf("\nVeuillez entrer la valeur de σ : ");
+  scanf("%f", &param->cte->sigma);
+  printf("\nVeuillez entrer la valeur de ρ : ");
+  scanf("%f", &param->cte->rho);
+  printf("\nVeuillez entrer la valeur de β : ");
+  scanf("%f", &param->cte->beta);
+    
   return param;
 }
