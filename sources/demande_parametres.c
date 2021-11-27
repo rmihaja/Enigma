@@ -30,3 +30,12 @@ struct parametres *demande_parametres() {
     
   return param;
 }
+
+#ifdef TESTS
+
+int main() {
+    // tests here
+    return 0;
+}
+
+#endif
