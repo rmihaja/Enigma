@@ -7,12 +7,8 @@ struct trajectoire *nouvelle_trajectoire() {
     struct trajectoire *trajectoire = (struct trajectoire *) malloc(sizeof(struct trajectoire));
 
     trajectoire->parametres = demande_parametres();
-
     trajectoire->equation_mouvement = demande_lorenz();
-
-    int nbre_points = (int) (trajectoire->parametres->t_max / trajectoire->parametres->dt);
-
-    trajectoire->coordonnees = (struct position **) malloc(nbre_points * sizeof(struct position *));
+    trajectoire->parametres->nbre_points = (int) (trajectoire->parametres->t_max / trajectoire->parametres->dt);
 
     return trajectoire;
 }
