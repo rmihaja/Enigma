@@ -1,5 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
+#include "position.h"
 #include "parametres.h"
 
 struct parametres *demande_parametres() {
@@ -19,14 +21,6 @@ struct parametres *demande_parametres() {
   scanf("%f", &param->dt);
   printf("\nVeuillez entrer le temps d'arrêt du système: ");
   scanf("%f", &param->t_max);
-
-  param->cte = (struct constantes *) malloc(sizeof(struct constantes));
-  printf("\nVeuillez entrer la valeur de σ : ");
-  scanf("%f", &param->cte->sigma);
-  printf("\nVeuillez entrer la valeur de ρ : ");
-  scanf("%f", &param->cte->rho);
-  printf("\nVeuillez entrer la valeur de β : ");
-  scanf("%f", &param->cte->beta);
     
   return param;
 }
