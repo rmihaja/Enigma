@@ -1,5 +1,6 @@
+#include <stdio.h>
 #include "parametres.h"
-#include "position.h";
+#include "position.h"
 
 struct position *lorenz_transform(struct position *p, struct constantes *cte) {
     return nouvelle_position(

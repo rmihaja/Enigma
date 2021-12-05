@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 struct position {
     float x;
     float y;

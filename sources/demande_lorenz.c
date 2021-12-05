@@ -1,5 +1,7 @@
-#include "systeme_dynamique.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include "parametres.h"
+#include "systeme_dynamique.h"
 
 struct systeme_dynamique *demande_lorenz() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
