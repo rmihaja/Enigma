@@ -15,7 +15,7 @@ init: $(LIB)/libenigma.a
 $(LIB)/libenigma.a: $(MODULES)
 	ar rcs $@ $^
 
-$(MODULE): 
+$(MODULES): 
 	cd $(SRC)/tools && make init
 	cd $(SRC) && make init
 	
