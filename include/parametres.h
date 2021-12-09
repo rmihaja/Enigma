@@ -1,5 +1,5 @@
 struct constantes {
-    int taille_tableau;
+    int nombre_constantes;
     float *t;
 };
 
