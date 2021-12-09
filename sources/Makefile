@@ -2,6 +2,7 @@ MODULES = calcul_trajectoire.o demande_lorenz.o demande_parametres.o lorenz_tran
 INCLUDE = -I ../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 DEST = ../module
+TESTS = -DTESTS -DUSECOLORS
 
 # * dependencies compile 
 
@@ -16,3 +17,10 @@ $(MODULES): %.o: %.c
 
 %.o: %.c 
 	gcc $(INCLUDE) $(WARNINGS) -c -o $(MODULES)/$@ $<
+
+# * dependencies unit tests
+
+test/%: %.c
+	gcc $(INCLUDE) $(WARNINGS) $(TESTS) $< -o $* 
+	./$* 
+	rm $*

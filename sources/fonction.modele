@@ -5,6 +5,7 @@ void fonction() {
 }
 
 #ifdef TESTS
+#include "tests.h"
 
 int main() {
     // tests here
