@@ -4,9 +4,9 @@
 
 struct position *lorenz_transform(struct position *p, struct constantes *cte) {
     return nouvelle_position(
-        p->x + cte->sigma * (p->y - p->x),
-        p->y + (p->x) * (cte->rho - p->z) - p->y,
-        p->z + (p->x * p->y) - (cte->beta * p->z)
+        p->x + cte->t[0] * (p->y - p->x),
+        p->y + (p->x) * (cte->t[1] - p->z) - p->y,
+        p->z + (p->x * p->y) - (cte->t[2] * p->z)
     );
 }
 
