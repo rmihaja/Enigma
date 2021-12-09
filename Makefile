@@ -8,17 +8,6 @@ DEST = ./bin
 TESTS = -DTESTS
 DEBUG = -DDEBUG
 
-# library compile
-
-init: $(LIB)/libenigma.a
-
-$(LIB)/libenigma.a: $(MODULES)
-	ar rcs $@ $^
-
-$(MODULES): 
-	cd $(SRC)/tools && make init
-	cd $(SRC) && make init
-	
 # program compile
 
 start: $(DEST)/main
@@ -30,6 +19,17 @@ start: $(DEST)/main
 
 $(DEST)/main: $(SRC)/main.c $(LIB)/libenigma.a
 	gcc $(INCLUDE) $(MODULES) $(WARNINGS) $< -o $@
+
+# library compile
+
+init: $(LIB)/libenigma.a
+
+$(LIB)/libenigma.a: $(MODULES)
+	ar rcs $@ $^
+
+$(MODULES): 
+	cd $(SRC)/tools && make init
+	cd $(SRC) && make init
 
 # project cleanup
 
