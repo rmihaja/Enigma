@@ -12,15 +12,15 @@ struct trajectoire *nouvelle_trajectoire() {
     printf("mihaja : \n dx/dt=σ(x − y) \n dy/dt=z(ρ − y) − x \n dz/dt=y − βxz \n tapez 3 \n");
     scanf("%d", &choix_systeme);
     trajectoire->parametres = demande_parametres();
-    if (choix_systeme=1){
+    if (choix_systeme==1){
         trajectoire->equation_mouvement = demande_lorenz();
     }
     else{
-        if (choix_systeme=2){
+        if (choix_systeme==2){
             trajectoire->equation_mouvement = demande_hugo();
         }
         else{
-            if (choix_systeme=3){
+            if (choix_systeme==3){
                 trajectoire->equation_mouvement = demande_mihaja();
             }
         }
