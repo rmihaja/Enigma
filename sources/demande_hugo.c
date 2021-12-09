@@ -6,13 +6,13 @@
 struct systeme_dynamique *demande_hugo() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
     systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
+    systeme->constantes->t=malloc(2*sizeof(float));
 
     printf("\nVeuillez entrer la valeur de σ : ");
-    scanf("%f", &systeme->constantes->sigma);
+    scanf("%f", &systeme->constantes->t[0]);
     printf("\nVeuillez entrer la valeur de ρ : ");
-    scanf("%f", &systeme->constantes->rho);
-    printf("\nVeuillez entrer la valeur de β : ");
-    scanf("%f", &systeme->constantes->beta);
+    scanf("%f", &systeme->constantes->t[1]);
+    systeme->constantes->nombre_constantes=2;
 
     systeme->equation = &hugo_transform;
 
