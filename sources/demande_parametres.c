@@ -1,28 +1,35 @@
 
-#include <stdio.h>
 #include <stdlib.h>
-#include "position.h"
+#include "trajectoire.h"
 #include "parametres.h"
+#include "systeme_dynamique.h"
 
-struct parametres *demande_parametres() {
-  struct parametres *param;
-  param = (struct parametres *) malloc(sizeof(struct parametres));
-
-  param->position_initiale = (struct position *) malloc(sizeof(struct position));
-  printf("Veuillez entrer la position initial du système:\n");
-  printf("\nCoordonnée x : ");
-  scanf("%f", &param->position_initiale->x);
-  printf("\nCoordonnée y : ");
-  scanf("%f", &param->position_initiale->y);
-  printf("\nCoordonnée z : ");
-  scanf("%f", &param->position_initiale->z);
-  
-  printf("\nVeuillez entrer l'incrément dt du mouvement: ");
-  scanf("%f", &param->dt);
-  printf("\nVeuillez entrer le temps d'arrêt du système: ");
-  scanf("%f", &param->t_max);
+struct trajectoire *nouvelle_trajectoire() {
+    struct trajectoire *trajectoire = (struct trajectoire *) malloc(sizeof(struct trajectoire));
     
-  return param;
+    printf("quel systeme dynamique voulez-vous ? Lorentz, Hugo ou Mihaja ? \n");
+    printf("Lorenz : \n dx/dt=σ(y − x) \n dy/dt=x(ρ − z) − y \n dz/dt=xy − βz \n");
+    printf("Hugo : \n dx/dt=σ(y + x) \n dy/dt=ρ(x − z) − z \n dz/dt=x − βz \n");
+    printf("Mihaja : \n dx/dt=σ(x − y) \n dy/dt=z(ρ − y) − x \n dz/dt=y − βxz \n");
+    scanf("%s", &choix_systeme);
+    trajectoire->parametres = demande_parametres();
+    if (choix_systeme=Lorenz){
+        trajectoire->equation_mouvement = demande_lorenz();
+    }
+    else{
+        if (choix_systeme=Hugo){
+            trajectoire->equation_mouvement = demande_Hugo();
+        }
+        else{
+            if (choix_systeme=Mihaja){
+                trajectoire->equation_mouvement = demande_Mihaja();
+            }
+        }
+    }
+    
+    trajectoire->parametres->nbre_points = (int) (trajectoire->parametres->t_max / trajectoire->parametres->dt);
+
+    return trajectoire;
 }
 
 #ifdef TESTS
