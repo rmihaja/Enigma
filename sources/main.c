@@ -1,7 +1,8 @@
-// programme principal
+#include "trajectoire.h"
 
-int main(){
-    struct parametres * par;
-    par=demande_parametres();
-    printf("%f",par->sigma);
+int main()
+{
+    struct trajectoire *lorenz = nouvelle_trajectoire();
+    calcul_trajectoire(lorenz);
+    return 0;
 }

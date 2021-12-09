@@ -1,0 +1,14 @@
+// structure modèle de toutes les fonctions du projet
+
+void fonction() {
+    // code here
+}
+
+#ifdef TESTS
+
+int main() {
+    // tests here
+    return 0;
+}
+
+#endif
