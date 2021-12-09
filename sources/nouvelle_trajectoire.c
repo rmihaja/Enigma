@@ -17,11 +17,11 @@ struct trajectoire *nouvelle_trajectoire() {
     }
     else{
         if (choix_systeme=2){
-            trajectoire->equation_mouvement = demande_Hugo();
+            trajectoire->equation_mouvement = demande_hugo();
         }
         else{
             if (choix_systeme=3){
-                trajectoire->equation_mouvement = demande_Mihaja();
+                trajectoire->equation_mouvement = demande_mihaja();
             }
         }
     }
