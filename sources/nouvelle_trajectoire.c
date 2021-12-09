@@ -8,8 +8,8 @@ struct trajectoire *nouvelle_trajectoire() {
     
     printf("quel systeme dynamique voulez-vous ? Lorentz, Hugo ou Mihaja ? \n");
     printf("Lorenz : \n dx/dt=σ(y − x) \n dy/dt=x(ρ − z) − y \n dz/dt=xy − βz \n tapez 1 \n");
-    printf("hugo : \n dx/dt=σ(y + x) \n dy/dt=ρ(x − z) − z \n dz/dt=x − βz \n tapez 2 \n");
-    printf("mihaja : \n dx/dt=σ(x − y) \n dy/dt=z(ρ − y) − x \n dz/dt=y − βxz \n tapez 3 \n");
+    printf("hugo : \n dx/dt=σ(y + x) \n dy/dt=ρ(x − z) − z \n dz/dt=x − z \n tapez 2 \n");
+    printf("mihaja : \n dx/dt=σ(x − y) \n dy/dt=z(ρ − y) − Ɛ \n dz/dt=y − βxz \n tapez 3 \n");
     scanf("%d", &choix_systeme);
     trajectoire->parametres = demande_parametres();
     if (choix_systeme==1){
