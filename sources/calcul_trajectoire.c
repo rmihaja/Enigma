@@ -11,7 +11,7 @@ int calcul_trajectoire(struct trajectoire *trajectoire) {
     struct position *position_dt = (struct position *)malloc(sizeof(struct position));
     for (int i = 0; i < trajectoire->parametres->nbre_points; i++) {
         fprintf_position(destination, i * trajectoire->parametres->dt, position_actuelle);
-        position_dt = trajectoire->equation_mouvement->equation(position_actuelle, trajectoire->equation_mouvement->constantes);
+        position_dt = trajectoire->equation_mouvement->equation(position_actuelle, trajectoire->equation_mouvement->constantes, trajectoire->parametres->dt);
         position_actuelle = position_dt;
     }
     return 0;
