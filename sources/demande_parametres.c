@@ -27,6 +27,7 @@ struct trajectoire *nouvelle_trajectoire() {
         }
     }
     
+    trajectoire->parametres->nbre_points = (int) (trajectoire->parametres->t_max / trajectoire->parametres->dt);
 
     return trajectoire;
 }
