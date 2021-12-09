@@ -3,7 +3,7 @@
 #include "parametres.h"
 #include "systeme_dynamique.h"
 
-struct systeme_dynamique *demande_Hugo() {
+struct systeme_dynamique *demande_hugo() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
     systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
 
