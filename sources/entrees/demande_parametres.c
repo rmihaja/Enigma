@@ -28,8 +28,18 @@ struct parametres *demande_parametres() {
 
 #ifdef TESTS
 
+#include "tests.h"
+
 int main() {
-    // tests here
+    parametres = (struct parametres *) malloc(sizeof(struct parametres));
+    parametres = demande_parametres();
+  
+    TEST_RES(parametres->position_initiale->x==1);
+    TEST_RES(parametres->position_initiale->y==2);
+    TEST_RES(parametres->position_initiale->z==3);
+    TEST_RES(parametres->position_initiale->dt==1);
+    TEST_RES(parametres->position_initiale->t_max==50);
+    TEST_RES(parametres->position_initiale->nbre_points==50);
     return 0;
 }
 
