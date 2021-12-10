@@ -20,6 +20,7 @@ struct systeme_dynamique *demande_hugo() {
 }
 
 #ifdef TESTS
+#include "tests.h"
 
 int main() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
