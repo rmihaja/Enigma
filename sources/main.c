@@ -5,7 +5,6 @@
 #include "position.h"
 #include "systeme_dynamique.h"
 #include "trajectoire.h"
-#include "tests.h"
 
 
 
