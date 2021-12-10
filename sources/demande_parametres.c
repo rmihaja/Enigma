@@ -8,7 +8,7 @@ struct parametres *demande_parametres() {
   param = (struct parametres *) malloc(sizeof(struct parametres));
 
   param->position_initiale = (struct position *) malloc(sizeof(struct position));
-  printf("Veuillez entrer la position initial du système:\n");
+  printf("\nVeuillez entrer la position initial du système:\n");
   printf("\nCoordonnée x : ");
   scanf("%f", &param->position_initiale->x);
   printf("\nCoordonnée y : ");
