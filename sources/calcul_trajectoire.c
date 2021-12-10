@@ -20,7 +20,7 @@ int calcul_trajectoire(struct trajectoire *trajectoire) {
 #ifdef TESTS
 
 int main() {
-    // tests here
+    // il faudrait tester le fichier lorenz.dat à un fichier de réference
     return 0;
 }
 
