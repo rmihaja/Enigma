@@ -23,6 +23,8 @@ struct systeme_dynamique *demande_lorenz() {
 
 #ifdef TESTS
 
+#include "tests.h"
+
 int main() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
     systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
