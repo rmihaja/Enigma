@@ -1,7 +1,7 @@
-MODULES = fprintf_position.o nouvelle_position.o
-INCLUDE = -I ../../include
+MODULES = evaluer_operation.o is_entree_valide.o
+INCLUDE = -I ../../../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
-DEST = ../../module
+DEST = ../../../module
 
 # * dependencies compile 
 

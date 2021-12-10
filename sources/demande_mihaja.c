@@ -18,6 +18,7 @@ struct systeme_dynamique *demande_mihaja() {
     scanf("%f", &systeme->constantes->t[3]);
     systeme->constantes->nbre_constantes=4;
 
+    systeme->constantes->lettres_constantes = "srbe";
     systeme->equation = &mihaja_transform;
 
     return systeme;

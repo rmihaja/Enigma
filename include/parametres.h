@@ -1,5 +1,7 @@
 struct constantes {
     int nbre_constantes;
+    // * l'ordre des lettres est important : il permet d'identifier sa place dans float *t
+    char *lettres_constantes;
     float *t;
 };
 

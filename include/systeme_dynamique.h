@@ -18,3 +18,5 @@ struct systeme_dynamique *demande_mihaja();
 struct position *lorenz_transform(struct position *p, struct constantes *cte, float dt);
 struct position *hugo_transform(struct position *p, struct constantes *cte, float dt);
 struct position *mihaja_transform(struct position *p, struct constantes *cte, float dt);
+
+struct position *custom_transform(struct position *p, struct constantes *cte, float dt);

@@ -16,6 +16,7 @@ struct systeme_dynamique *demande_lorenz() {
     scanf("%f", &systeme->constantes->t[2]);
     systeme->constantes->nbre_constantes=3;
 
+    systeme->constantes->lettres_constantes = "srb";
     systeme->equation = &lorenz_transform;
 
     return systeme;
