@@ -35,7 +35,17 @@ struct trajectoire *nouvelle_trajectoire() {
 #ifdef TESTS
 
 int main() {
-    // tests here
+    struct trajectoire *trajectoire = (struct trajectoire *) malloc(sizeof(struct trajectoire));
+    trajectoire=nouvelle_trajectoire();
+    
+    TEST_RES(trajectoire->parametres->position_initiale->x==1);
+    TEST_RES(trajectoire->parametres->position_initiale->y==2);
+    TEST_RES(trajectoire->parametres->position_initiale->z==3);
+    TEST_RES(trajectoire->parametres->position_initiale->dt==1);
+    TEST_RES(trajectoire->parametres->position_initiale->t_max==50);
+    TEST_RES(trajectoire->parametres->position_initiale->nbre_points==50);
+    
+    
     return 0;
 }
 
