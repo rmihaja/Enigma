@@ -9,7 +9,7 @@ int fprintf_position(FILE *destination, float temps, struct position *p) {
 #ifdef TESTS
 
 int main() {
-    // tests here
+    // rien à tester car fonction d'écriture dans fichier
     return 0;
 }
 
