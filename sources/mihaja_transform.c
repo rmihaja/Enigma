@@ -12,6 +12,8 @@ struct position *mihaja_transform(struct position *p, struct constantes *cte) {
 
 #ifdef TESTS
 
+#include "tests.h"
+
 int main() {
     
     struct constantes *constantes = (struct constantes *) malloc(sizeof(struct constantes));
