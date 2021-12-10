@@ -14,6 +14,7 @@ struct systeme_dynamique *demande_hugo() {
     scanf("%f", &systeme->constantes->t[1]);
     systeme->constantes->nbre_constantes=2;
 
+    systeme->constantes->lettres_constantes = "sr";
     systeme->equation = &hugo_transform;
 
     return systeme;

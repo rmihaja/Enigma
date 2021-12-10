@@ -1,0 +1,1 @@
+float demande_vitesse(struct position *p, struct constantes *cte);
