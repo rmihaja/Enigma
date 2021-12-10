@@ -1,4 +1,4 @@
-MODULES = calcul_trajectoire.o demande_lorenz.o demande_hugo.o demande_mihaja.o demande_parametres.o lorenz_transform.o hugo_transform.o mihaja_transform.o nouvelle_trajectoire.o
+MODULES = calcul_trajectoire.o demande_lorenz.o demande_hugo.o demande_mihaja.o demande_parametres.o lorenz_transform.o hugo_transform.o mihaja_transform.o nouvelle_trajectoire.o demande_vitesse.o custom_transform.o
 INCLUDE = -I ../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 DEST = ../module
@@ -17,10 +17,3 @@ $(MODULES): %.o: %.c
 
 %.o: %.c 
 	gcc $(INCLUDE) $(WARNINGS) -c -o $(MODULES)/$@ $<
-
-# * dependencies unit tests
-
-test/%: %.c
-	gcc $(INCLUDE) $(WARNINGS) $(TESTS) $< -o $* 
-	./$* 
-	rm $*
