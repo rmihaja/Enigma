@@ -3,10 +3,10 @@
 #include "parametres.h"
 #include "systeme_dynamique.h"
 
-struct systeme_dynamique *demande_lorenz() {
+struct systeme_dynamique *demande_mihaja() {
     struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
     systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
-    systeme->constantes->t= malloc(3*sizeof(float));
+    systeme->constantes->t= malloc(4*sizeof(float));
 
     printf("\nVeuillez entrer la valeur de σ : ");
     scanf("%f", &systeme->constantes->t[0]);
@@ -14,9 +14,11 @@ struct systeme_dynamique *demande_lorenz() {
     scanf("%f", &systeme->constantes->t[1]);
     printf("\nVeuillez entrer la valeur de β : ");
     scanf("%f", &systeme->constantes->t[2]);
-    systeme->constantes->nombre_constantes=3;
+    printf("\nVeuillez entrer la valeur de Ɛ : ");
+    scanf("%f", &systeme->constantes->t[3]);
+    systeme->constantes->nombre_constantes=4;
 
-    systeme->equation = &lorenz_transform;
+    systeme->equation = &mihaja_transform;
 
     return systeme;
 }

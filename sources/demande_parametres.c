@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "position.h"
@@ -21,6 +20,8 @@ struct parametres *demande_parametres() {
   scanf("%f", &param->dt);
   printf("\nVeuillez entrer le temps d'arrêt du système: ");
   scanf("%f", &param->t_max);
+  
+  param->nbre_points = (int) (param->t_max / param->dt);
     
   return param;
 }

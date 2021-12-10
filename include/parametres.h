@@ -1,8 +1,8 @@
 struct constantes {
-    float sigma;
-    float rho;
-    float beta;
+    int nombre_constantes;
+    float *t;
 };
+
 
 struct parametres {
     struct position *position_initiale;
