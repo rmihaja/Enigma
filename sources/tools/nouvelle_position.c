@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "position.h"
 
+
 struct position *nouvelle_position(float x, float y, float z) {
     struct position *position = (struct position *) malloc(sizeof(struct position));
     position->x = x;
@@ -10,6 +11,7 @@ struct position *nouvelle_position(float x, float y, float z) {
 }
 
 #ifdef TESTS
+#include "tests.h"
 
 int main() {
     struct position *position = (struct position *) malloc(sizeof(struct position));
