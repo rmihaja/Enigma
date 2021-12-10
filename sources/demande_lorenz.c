@@ -24,7 +24,15 @@ struct systeme_dynamique *demande_lorenz() {
 #ifdef TESTS
 
 int main() {
-    // tests here
+    struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
+    systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
+    systeme->constantes->t= malloc(3*sizeof(float));
+    systeme=demande_lorenz();
+    
+    TEST_RES(systeme->constantes->t[0]==10);
+    TEST_RES(systeme->constantes->t[1]==28);
+    TEST_RES(systeme->constantes->t[2]==8/3);
+    TEST_RES(systeme->constantes->nbre_constantes==3);
     return 0;
 }
 
