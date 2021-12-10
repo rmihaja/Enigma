@@ -8,7 +8,7 @@ struct position *nouvelle_position(float x, float y, float z) {
     position->y = y;
     position->z = z;
     return position;
-}
+};
 
 #ifdef TESTS
 #include "tests.h"
@@ -21,6 +21,6 @@ int main() {
     TEST_RES(position->x==3);
     
     return 0;
-}
+};
 
 #endif
