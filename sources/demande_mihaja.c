@@ -26,8 +26,16 @@ struct systeme_dynamique *demande_mihaja() {
 #ifdef TESTS
 
 int main() {
-    // tests here
+    struct systeme_dynamique *systeme = (struct systeme_dynamique *)malloc(sizeof(struct systeme_dynamique));
+    systeme->constantes = (struct constantes *) malloc(sizeof(struct constantes));
+    systeme->constantes->t= malloc(4*sizeof(float));
+    systeme=demande_mihaja();
+    
+    TEST_RES(systeme->constantes->t[0]==10);
+    TEST_RES(systeme->constantes->t[1]==28);
+    TEST_RES(systeme->constantes->t[2]==8/3);
+    TEST_RES(systeme->constantes->t[3]==5);
+    TEST_RES(systeme->constantes->nbre_constantes==4);
     return 0;
 }
-
 #endif
