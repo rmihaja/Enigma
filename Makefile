@@ -2,10 +2,12 @@ INCLUDE = -I ./include
 LIB = ./lib
 LIBS = $(LIB)/calcul_trajectoire.a $(LIB)/entrees.a $(LIB)/equations.a
 LIBTOOLS = $(LIB)/lecture.a $(LIB)/liste.a $(LIB)/position.a
-LDEPENDENCY = -lcalcultrajectoire -lentrees -lequations
+LDEPENDENCY = -lcalcul_trajectoire -lentrees -lequations
 LTOOLSDEPENDENCY = -llecture -lliste -lposition
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 MODULE = ./module
+MODULES = $(MODULE)/calcul_trajectoire.o $(MODULE)/demande_lorenz.o $(MODULE)/demande_hugo.o $(MODULE)/demande_mihaja.o $(MODULE)/demande_parametres.o $(MODULE)/lorenz_transform.o $(MODULE)/hugo_transform.o $(MODULE)/mihaja_transform.o $(MODULE)/nouvelle_trajectoire.o $(MODULE)/demande_vitesse.o $(MODULE)/custom_transform.o
+TOOLS = $(MODULE)/nouvelle_position.o $(MODULE)/fprintf_position.o $(MODULE)/get_position.o $(MODULE)/nouvelle_liste.o $(MODULE)/ajouter_liste.o  $(MODULE)/supprimer_liste.o $(MODULE)/evaluer_operation.o $(MODULE)/is_entree_valide.o  
 SRC = ./sources
 DEST = ./bin
 TESTS = -DTESTS
@@ -16,8 +18,9 @@ DEBUG = -DDEBUG
 start: $(DEST)/main
 	$<
 
+# ! build on .o files if .a compile fail (case study on WSL)
 $(DEST)/main: $(SRC)/main.c $(LIBS) $(LIBTOOLS) 
-	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $< -o $@ $(LDEPENDENCY) $(LTOOLSDEPENDENCY)
+	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $< -o $@ $(LDEPENDENCY) $(LTOOLSDEPENDENCY) || gcc $(INCLUDE) $(MODULES) $(TOOLS) $(WARNINGS) $< -o $@
 
 # library compile
 
@@ -33,8 +36,9 @@ $(LIBTOOLS): $(LIB)/%.a: $(SRC)/tools/%
 
 # dependencies unit tests
 
+# ! build on .o files if .a compile fail (case study on WSL)
 test/%: %.c $(TOOLS)
-	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $(TESTS) $< -o $* $(LTOOLSDEPENDENCY) 
+	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $(TESTS) $< -o $* $(LTOOLSDEPENDENCY) || gcc $(INCLUDE) $(TOOLS) $(WARNINGS) $< -o $@
 	./$* 
 	rm $*
 
