@@ -6,7 +6,7 @@
 #include "trajectoire.h"
 
 int calcul_trajectoire(struct trajectoire *trajectoire) {
-    FILE *destination = fopen("lorenz.dat", "w+");
+    FILE *destination = fopen("sortie.dat", "w+");
     struct position *position_actuelle = trajectoire->parametres->position_initiale;
     struct position *position_dt = (struct position *)malloc(sizeof(struct position));
     for (int i = 0; i < trajectoire->parametres->nbre_points; i++) {
