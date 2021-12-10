@@ -4,9 +4,8 @@
 #include "vitesse.h"
 
 struct position *custom_transform(struct position *p, struct constantes *cte, float dt) {
-    float dx = demande_vitesse(p, cte);
     return nouvelle_position(
-        p->x + dx * dt,
+        p->x + demande_vitesse(p, cte) * dt,
         p->y + demande_vitesse(p, cte) * dt,
         p->z + demande_vitesse(p, cte) * dt
     );
