@@ -4,7 +4,7 @@
 int fprintf_position(FILE *destination, float temps, struct position *p) {
     fprintf(destination, "%f %f %f %f\n", temps, p->x, p->y, p->z);
     return 0;
-}
+};
 
 #ifdef TESTS
 
