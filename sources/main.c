@@ -9,7 +9,6 @@
 
 
 int main(){
-    
     struct trajectoire *lorenz = nouvelle_trajectoire();
     calcul_trajectoire(lorenz);
     
