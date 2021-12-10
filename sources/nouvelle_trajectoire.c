@@ -34,6 +34,8 @@ struct trajectoire *nouvelle_trajectoire() {
 
 #ifdef TESTS
 
+#include "tests.h"
+
 int main() {
     struct trajectoire *trajectoire = (struct trajectoire *) malloc(sizeof(struct trajectoire));
     trajectoire=nouvelle_trajectoire();
