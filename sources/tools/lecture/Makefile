@@ -1,13 +1,19 @@
-MODULES = evaluer_operation.o is_entree_valide.o
+LIB = lecture.a
+DEST = ../../../lib
+MODULE = ../../../module
+MODULES = $(MODULE)/evaluer_operation.o $(MODULE)/is_entree_valide.o 
 INCLUDE = -I ../../../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
-DEST = ../../../module
 
 # * dependencies compile 
 
-init: $(MODULES)
+init: $(LIB)
+
+$(LIB): $(MODULES)
+	ar rcs $(DEST)/lib$@ $^
 
 # ? using pattern rules to automatically compile .o files from MODULES source list
 # https://www.gnu.org/software/make/manual/html_node/Static-Usage.html#Static-Usage
-$(MODULES): %.o: %.c 
-	gcc $(INCLUDE) $(WARNINGS) -c -o $(DEST)/$@ $<
+$(MODULES): $(MODULE)/%.o: %.c 
+	gcc $(INCLUDE) $(WARNINGS) -c -o $@ $<
+

@@ -1,8 +1,8 @@
-LIB = liste.a
-DEST = ../../../lib
-MODULE = ../../../module
-MODULES = $(MODULE)/ajouter_liste.o $(MODULE)/nouvelle_liste.o $(MODULE)/supprimer_liste.o 
-INCLUDE = -I ../../../include
+LIB = equations.a
+DEST = ../../lib
+MODULE = ../../module
+MODULES = $(MODULE)/custom_transform.o $(MODULE)/hugo_transform.o $(MODULE)/lorenz_transform.o $(MODULE)/mihaja_transform.o
+INCLUDE = -I ../../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 
 # * dependencies compile 

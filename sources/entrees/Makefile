@@ -1,8 +1,8 @@
-LIB = liste.a
-DEST = ../../../lib
-MODULE = ../../../module
-MODULES = $(MODULE)/ajouter_liste.o $(MODULE)/nouvelle_liste.o $(MODULE)/supprimer_liste.o 
-INCLUDE = -I ../../../include
+LIB = entrees.a
+DEST = ../../lib
+MODULE = ../../module
+MODULES = $(MODULE)/demande_hugo.o $(MODULE)/demande_lorenz.o $(MODULE)/demande_mihaja.o $(MODULE)/demande_parametres.o $(MODULE)/demande_vitesse.o
+INCLUDE = -I ../../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 
 # * dependencies compile 

@@ -1,8 +1,8 @@
-LIB = liste.a
-DEST = ../../../lib
-MODULE = ../../../module
-MODULES = $(MODULE)/ajouter_liste.o $(MODULE)/nouvelle_liste.o $(MODULE)/supprimer_liste.o 
-INCLUDE = -I ../../../include
+LIB = calcul_trajectoire.a
+DEST = ../../lib
+MODULE = ../../module
+MODULES = $(MODULE)/calcul_trajectoire.o $(MODULE)/nouvelle_trajectoire.o
+INCLUDE = -I ../../include
 WARNINGS = -Wall -Werror -Wextra -ggdb3
 
 # * dependencies compile 
