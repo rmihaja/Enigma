@@ -28,6 +28,8 @@ struct parametres *demande_parametres() {
 
 #ifdef TESTS
 
+#include "tests.h"
+
 int main() {
     parametres = (struct parametres *) malloc(sizeof(struct parametres));
     parametres = demande_parametres();
