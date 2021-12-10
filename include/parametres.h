@@ -1,5 +1,5 @@
 struct constantes {
-    int nombre_constantes;
+    int nbre_constantes;
     float *t;
 };
 

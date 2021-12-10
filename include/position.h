@@ -1,3 +1,4 @@
+// ? include necéssaire pour avoir le type FILE
 #include <stdio.h>
 
 struct position {

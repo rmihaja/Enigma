@@ -16,7 +16,7 @@ struct systeme_dynamique *demande_mihaja() {
     scanf("%f", &systeme->constantes->t[2]);
     printf("\nVeuillez entrer la valeur de Ɛ : ");
     scanf("%f", &systeme->constantes->t[3]);
-    systeme->constantes->nombre_constantes=4;
+    systeme->constantes->nbre_constantes=4;
 
     systeme->equation = &mihaja_transform;
 

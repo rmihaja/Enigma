@@ -12,7 +12,7 @@ struct systeme_dynamique *demande_hugo() {
     scanf("%f", &systeme->constantes->t[0]);
     printf("\nVeuillez entrer la valeur de ρ : ");
     scanf("%f", &systeme->constantes->t[1]);
-    systeme->constantes->nombre_constantes=2;
+    systeme->constantes->nbre_constantes=2;
 
     systeme->equation = &hugo_transform;
 

@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "trajectoire.h"
 #include "parametres.h"
 #include "systeme_dynamique.h"
