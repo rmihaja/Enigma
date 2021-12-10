@@ -27,6 +27,12 @@ int main() {
     constantes->nbre_constante=3;
     
     new_position=lorenz_transform(position,constantes);
+    
+    TEST_RES(new_position->x==11);
+    TEST_RES(new_position->y==25);
+    TEST_RES(new_position->z==-3);
+    TEST_RES(systeme->constantes->nbre_constantes==3);
+    
     return 0;
 }
 
