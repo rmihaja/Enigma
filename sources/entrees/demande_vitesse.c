@@ -7,7 +7,7 @@
 #include "entree.h"
 #include "liste.h"
 
-float demande_vitesse(struct position *p, struct constantes *cte) {
+float demande_vitesse(struct position *p, struct constantes *cte, char *composante) {
     char *lettres_positions = "xyz";
     char *lettres_operations = "+-*/";
     
@@ -21,7 +21,7 @@ float demande_vitesse(struct position *p, struct constantes *cte) {
     char *entree_utilisateur;
     while (1)
     {
-        printf("\nVeuillez entrer les paramètres de la mise à jour de la vitesse :\n");
+        printf("\nVeuillez entrer les paramètres de la mise à jour de la vitesse %s : ", composante);
         scanf("%ms", &entree_utilisateur);
         printf("parametre entrée: %s\n", entree_utilisateur);
         if (is_entree_valide(entree_utilisateur, caracteres_autorisees))
@@ -34,7 +34,8 @@ float demande_vitesse(struct position *p, struct constantes *cte) {
         }
     }
 
-    struct liste_valeurs *l_valx = nouvelle_liste();
+    // on crée la pile pour traiter la chaîne d'équation
+    struct liste_valeurs *l_val = nouvelle_liste();
 
     for (int i = 0; i < (int) strlen(entree_utilisateur); i++) {
         char c_entree = entree_utilisateur[i];
@@ -48,27 +49,27 @@ float demande_vitesse(struct position *p, struct constantes *cte) {
 #ifdef DEBUG
                 printf("Constante %c détectée : %f\n", c_entree, cte->t[var_i]);
 #endif
-                ajouter_liste(l_valx, cte->t[var_i]);
+                ajouter_liste(l_val, cte->t[var_i]);
             }
             else if (strchr(lettres_positions, c_entree)) {
 #ifdef DEBUG
                 printf("Variable %c détectée : %f\n", c_entree, get_position(p, c_entree));
 #endif
-                ajouter_liste(l_valx, get_position(p, c_entree));
+                ajouter_liste(l_val, get_position(p, c_entree));
             }
             // on assume que l'utilisateur NE METTRA JAMAIS une opération avant les lettres variables
             else if (strchr(lettres_operations, c_entree)) {
-                float resultat_operation = evaluer_operation(l_valx->premier->val, l_valx->premier->suivant->val, c_entree);
+                float resultat_operation = evaluer_operation(l_val->premier->val, l_val->premier->suivant->val, c_entree);
 #ifdef DEBUG
-                printf("Opération (%f %c %f) détectée. Résultat : %f\n", l_valx->premier->val, c_entree, l_valx->premier->suivant->val, resultat_operation);
+                printf("Opération (%f %c %f) détectée. Résultat : %f\n", l_val->premier->val, c_entree, l_val->premier->suivant->val, resultat_operation);
 #endif
-                supprimer_liste(l_valx);
-                l_valx->premier->val = resultat_operation;
+                supprimer_liste(l_val);
+                l_val->premier->val = resultat_operation;
             }
         }
     }
     free(entree_utilisateur);
-    return l_valx->premier->val;
+    return l_val->premier->val;
 }
 
 #ifdef TESTS
@@ -83,7 +84,7 @@ int main() {
     cte->t[0] = 10;
     cte->t[1] = 28;
     cte->t[2] = 2.66;
-    VAL_FLOAT(demande_vitesse(p, cte));
+    VAL_FLOAT(demande_vitesse(p, cte, "dx"));
     return 0;
 }
 

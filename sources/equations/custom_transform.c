@@ -5,9 +5,9 @@
 
 struct position *custom_transform(struct position *p, struct constantes *cte, float dt) {
     return nouvelle_position(
-        p->x + demande_vitesse(p, cte) * dt,
-        p->y + demande_vitesse(p, cte) * dt,
-        p->z + demande_vitesse(p, cte) * dt
+        p->x + demande_vitesse(p, cte, "dx/dt") * dt,
+        p->y + demande_vitesse(p, cte, "dy/dt") * dt,
+        p->z + demande_vitesse(p, cte, "dz/dt") * dt
     );
 }
 

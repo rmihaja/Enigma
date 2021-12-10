@@ -37,8 +37,8 @@ $(LIBTOOLS): $(LIB)/%.a: $(SRC)/tools/%
 # dependencies unit tests
 
 # ! build on .o files if .a compile fail (case study on WSL)
-test/%: %.c $(TOOLS)
-	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $(TESTS) $< -o $* $(LTOOLSDEPENDENCY) || gcc $(INCLUDE) $(TOOLS) $(WARNINGS) $< -o $@
+test/%: %.c $(LIBTOOLS)
+	gcc $(INCLUDE) -L $(LIB) $(WARNINGS) $(DEBUG) $(TESTS) $< -o $* $(LTOOLSDEPENDENCY) || gcc $(INCLUDE) $(TOOLS) $(WARNINGS) $< -o $@
 	./$* 
 	rm $*
 
